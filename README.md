@@ -1,63 +1,113 @@
 # Custom AI Chatbot with Memory
 
-DecodeLabs Generative AI Industrial Training — Project 1
+This is the first project i built as part of my Generative AI Industrial Training at DecodeLabs.
 
-A terminal chatbot that remembers the full conversation during a live
-session, using Gemini as the model and a manually-managed in-memory
-history arrayv to demonstrate stateful architecture explicitly.
+## Overview
 
-## PREREQUISITES
+This is an AI-powered chatbot that can remember what you have said during a conversation.
 
-Python 3.10+
-A Gemini API key — this project will not run without one. Get an API key from Google AI Studio,
-then follow the setup steps below to add it to a .env file.
+Unlike a basic chatbot that forgets previous messages, this chatbot keeps track of the conversation so it can give more natural and relevant responses.
 
+For example:
 
-The file you run
+**You:** My name is David.
 
-main.py — it imports history_manager.py and gemini_client.py, you
-never run those two directly.
+**Chatbot:** Nice to meet you, David!
 
+A few messages later...
 
-## Run This 
+**You:** What is my name?
 
-\`\`\`bash
+**Chatbot:** Your name is David.
+
+The chatbot remembers earlier parts of the conversation, making the interaction feel more like talking to a real person.
+
+---
+
+## Features
+
+- Holds natural conversations using Google's Gemini AI.
+- Remembers previous messages during the current chat session.
+- Responds based on earlier parts of the conversation.
+- Allows users to clear the conversation and start over.
+- Prevents invalid or empty messages from being sent.
+
+---
+
+## Requirements
+
+Before running the project, you'll need:
+
+- Python 3.10 or later
+- A Gemini API key from Google AI Studio
+
+---
+
+## Running the Project
+
+Start the chatbot by running:
+
+```bash
 python main.py
-\`\`\`
-## This is what the terminal looks like 
-╭───────────────────────────────────────────╮
-│ Custom AI Chatbot with Memory              │
-│ DecodeLabs GenAI Industrial Training       │
-│                                             │
-│ Type your message and press Enter.         │
-│ Commands: /history  /clear  /exit          │
-╰───────────────────────────────────────────╯
+```
 
-You: My name is David
-Gemini:
-Nice to meet you, David! How can I help you today?
-(2 turns in memory)
+When the chatbot starts, you'll see a screen like this:
 
-You: What is my name?
-Gemini:
-Your name is David.
-(4 turns in memory)
+```
+Custom AI Chatbot with Memory
+
+Type your message and press Enter.
+
+Commands:
+/history
+/clear
+/exit
+```
+
+---
+
+## Example Conversation
+
+**You:** My name is David.
+
+**Chatbot:** Nice to meet you, David! How can I help you today?
+
+**You:** What is my name?
+
+**Chatbot:** Your name is David.
+
+---
+
+## Available Commands
+
+While chatting, you can use these commands:
+
+- **/history** – View the conversation so far.
+- **/clear** – Clear the conversation and start a new chat.
+- **/exit** – Close the chatbot.
+
+---
+
+## Project Files
+
+- **main.py** – Starts the chatbot.
+- **gemini_client.py** – Connects the chatbot to Google's Gemini AI.
+- **history_manager.py** – Stores the conversation so the chatbot can remember previous messages.
+- **requirements.txt** – Lists the required Python packages.
+- **README.md** – Project documentation.
 
 
+## Technologies Used
 
-## What this project demonstrates
+- Python
+- Google Gemini API
 
-- Stateful architecture: every turn appends to a ChatHistory array
-  ('history_manager.py') and the entire array is resent to Gemini on
-  each call — turning a stateless API into a contextual conversation.
-- Structural validation gate: empty/whitespace input is rejected
-  locally before it ever reaches the API, preventing a 400 crash.
-- Sliding window (FIFO) pruning: once the history exceeds 20 turns,
-  the oldest ones are dropped automatically, protecting against context
-  window overflow on long sessions.
 
-## Commands inside the chat
+## Future Improvements
 
-- `/history` — print the full in-memory conversation array
-- `/clear` — wipe the session and start fresh
-- `/exit` — quit
+Possible enhancements include:
+
+- Saving conversations even after the program is closed.
+- Adding voice input and voice responses.
+- Creating a web interface instead of using the terminal.
+- Allowing users to have multiple chat sessions.
