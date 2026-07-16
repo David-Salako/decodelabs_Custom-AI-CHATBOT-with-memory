@@ -26,57 +26,11 @@ The chatbot remembers earlier parts of the conversation, making the interaction 
 
 ## Features
 
-- Holds natural conversations using Google's Gemini AI.
-- Remembers previous messages during the current chat session.
-- Responds based on earlier parts of the conversation.
-- Allows users to clear the conversation and start over.
-- Prevents invalid or empty messages from being sent.
-
----
-
-## Requirements
-
-Before running the project, you'll need:
-
-- Python 3.10 or later
-- A Gemini API key from Google AI Studio
-
----
-
-## Running the Project
-
-Start the chatbot by running:
-
-```bash
-python main.py
-```
-
-When the chatbot starts, you'll see a screen like this:
-
-```
-Custom AI Chatbot with Memory
-
-Type your message and press Enter.
-
-Commands:
-/history
-/clear
-/exit
-```
-
----
-
-## Example Conversation
-
-**You:** My name is David.
-
-**Chatbot:** Nice to meet you, David! How can I help you today?
-
-**You:** What is my name?
-
-**Chatbot:** Your name is David.
-
----
+- Session-based conversational memory for context-aware responses.
+- Integration with the Google Gemini API for natural language generation.
+- Input validation to prevent invalid requests.
+- Built-in commands for viewing, clearing, and ending chat sessions.
+- Modular architecture separating conversation management from AI communication.
 
 ## Available Commands
 
@@ -101,13 +55,4 @@ While chatting, you can use these commands:
 
 - Python
 - Google Gemini API
-
-
-## Future Improvements
-
-Possible enhancements include:
-
-- Saving conversations even after the program is closed.
-- Adding voice input and voice responses.
-- Creating a web interface instead of using the terminal.
-- Allowing users to have multiple chat sessions.
+- python-dotenv
